@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="/js/registerScript.js"></script>
+    <link rel="stylesheet" href="/css/registerStyle.css">
+</head>
+
+<body ng-app="myapp" ng-controller="myctrl">
+
+    <img src="visuals/logo.png" alt="sharify logo" class="logo">
+
+    <form name="myform" id="form" action="/register" method="post">
+        <div class="container">
+            <!-- Alert BOX -->
+            <div class=" alert  alert-danger" role="alert" id="loginAlert"
+                style="width: fit-content; margin-right: 20%;">
+                <p style="text-align: center; ">Email already exists</p>
+            </div>
+            <h2 class="heading">Register</h2>
+            <div class="seperation"></div>
+
+            <div class="inputs">
+                <div class="input">
+                    <label for="fname" id="1" hidden>First Name</label><br>
+                    <input class="input" type="text" ng-model="fname" name="fname" id="fname" placeholder="First Name"
+                        required /><br>
+                    <span ng-show="myform.fname.$touched && myform.fname.$invalid">First Name is Required</span>
+                </div>
+                <div class="input">
+                    <label for="lname" id="2" hidden>Last Name</label><br>
+                    <input class="input" type="text" ng-model="lname" name="lname" id="lname"
+                        placeholder="Last Name" /><br>
+                </div>
+                <div class="input">
+                    <label for="email" id="3" hidden>Email</label><br>
+                    <input class="input" type="email" ng-model="email" name="email" id="email" placeholder="Email" required/>
+                    <br>
+                    <span ng-show="myform.email.$touched && myform.email.$invalid">Enter proper format of email</span>
+                </div>
+                <div class="input">
+                    <label for="password" id="4" hidden>Password</label><br>
+                    <input class="input" type="password" ng-model="pwd" name="password" id="pwd" placeholder="Password"
+                        required minlength="8" maxlength="15" /><br>
+                    <span ng-show="myform.password.$touched && myform.password.$invalid">password is required & password
+                        length must be greater than 8 and less than 14 </span>
+                </div>
+                <div class="input">
+                    <label for="phone" id="5" hidden>Phone</label><br>
+                    <input class="input" type="number" ng-model="phone" name="phone" id="phone" placeholder="Phone"
+                        minlength="10" maxlength="10" required /><br>
+                    <span ng-show="myform.phone.$touched && myform.phone.$invalid">Phone no is required and length must
+                        be equal to 10</span>
+                </div>
+            </div>
+            <div class="submit">
+                <div class="done">
+                    <button type="submit" value="submit" ng-show="myform.$valid">Submit</button>
+                    <!-- ng-show="myform.$valid" -->
+                </div>
+                <div class="cancel">
+                    <input type="button" ng-click="clear()" value="cancel" />
+                </div>
+            </div>
+            <a href="/login" class="ifUser">Already a user?</a>
+        </div>
+    </form>
+
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $('#loginAlert').hide();
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('error');
+    if (myParam == "Incorrect_Credential") {
+        $('#loginAlert').show();
+        setTimeout(function () {
+            $('#loginAlert').fadeOut();
+        }, 3000)
+    }
+</script>
+
+
+</html>

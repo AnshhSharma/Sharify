@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="/js/registerScript.js"></script>
+  
+    <link rel="stylesheet" href="/css/registerStyle.css">
+</head>
+
+<body ng-app="myapp" ng-controller="myctrl">
+
+    <img src="visuals/logo.png" alt="sharify logo" class="logo">
+    <form name="myform" id="form" action="/login" method="post">
+        <div class="container">
+            <div class=" alert  alert-danger" role="alert" id="loginAlert"
+                style="width: fit-content; margin-right: 20%;">
+                <p style="text-align: center;">Incorrect Credential</p>
+            </div>
+            <h2 class="heading">Login</h2>
+            <div class="seperation"></div>
+
+            <div class="inputs">
+                <div class="input">
+                    <label for="email" id="3" hidden>Email</label><br>
+                    <input class="input" type="email" ng-model="email" name="email" id="email" placeholder="Email"
+                        required />
+                    <br>
+                    <span ng-show="myform.email.$touched && myform.email.$invalid">It is a required feild, Make sure it
+                        email provided is in proper format</span>
+                </div>
+                <div class="input">
+                    <label for="password" id="4" hidden>Password</label><br>
+                    <input class="input" type="password" ng-model="pwd" name="password" id="pwd" placeholder="Password"
+                        required /><br>
+                </div>
+            </div>
+            <div class="submit">
+                <div class="done">
+                    <button type="submit" value="submit" ng-show="myform.$valid">submit</button>
+                </div>
+                <div class="cancel">
+                    <input type="button" ng-click="clear()" value="cancel" />
+                </div>
+            </div>
+            <a href="/register" class="ifNotUser">Not a user?</a>
+        </div>
+    </form>
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $('#loginAlert').hide();
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('error');
+    if (myParam == "Incorrect_Credential") {
+        $('#loginAlert').show();
+        setTimeout(function () {
+            $('#loginAlert').fadeOut();
+        }, 3000)
+    }
+</script>
+
+</html>

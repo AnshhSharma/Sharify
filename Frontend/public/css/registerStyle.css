@@ -1,0 +1,113 @@
+*{
+    color: white;
+}
+body {
+  font-family: system-ui;
+  background-color: rgb(237, 245, 254);
+  height: 98vh;
+  overflow: hidden;
+}
+.ifUser,.ifNotUser{
+    width: fit-content;
+    margin-left:18px;
+}
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 150px;
+    height: 150px;
+  }
+.container{
+    /* border: 5px solid black; */
+    width: 375px;
+    height: fit-content;
+    margin: 140px auto;
+    padding: 5px;
+    background-color: rgb(44, 57, 64);
+    box-shadow: 5px 5px 3px rgb(29, 28, 28);
+    border-radius: 10px;
+}
+/* form{
+    border: 4px solid transparent;
+    height: 566px;
+    box-shadow: 5px 5px 3px rgb(29, 28, 28);
+} */
+.heading{
+    width: fit-content;
+    margin: 10px auto;
+}
+.seperation{
+    height: 2px;
+    /* border: 1px solid red; */
+    background-color: rgb(119, 127, 131);
+}
+.input{
+    margin: 10px;
+}
+.input input{
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style:groove;
+    /* border-style: hidden; */
+    background-color: transparent;
+    outline: none;
+    width: 350px;
+}
+#phone::-webkit-outer-spin-button,
+#phone::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+}
+.submit,button{
+    width: fit-content;
+    margin: 10px auto;
+    padding: 10px;
+}
+.submit input,button{
+    height: 35px;
+    width: 100px;
+    cursor: pointer;
+}
+.submit div{
+    display: inline-block;
+    padding: 10px;
+}
+.done input,button{
+    background-color: rgb(161, 165, 168);
+    border: none;
+    border-radius: 3px;
+}
+.cancel input{
+    background-color: rgb(223, 64, 90);
+    border: none;
+    border-radius: 3px;
+}
+label{
+    color: gray;
+}
+
+.input.ng-invalid{
+    border-bottom-color: red;
+}
+.input.ng-valid{
+    border-bottom-color: green;
+}
+.input.ng-pristine{
+    border-bottom-color: white;
+}
+
+.table,th,td,.regUsers{
+    width: fit-content;
+    margin: auto;
+}
+table,td,th{
+    border: 2px solid black;
+    margin: 10px;
+    border-collapse: collapse;
+    /* padding: 10px; */
+}
+td,th{
+    padding: 10px;
+}
